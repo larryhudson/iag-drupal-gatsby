@@ -11,27 +11,26 @@ import {
 } from "../components/service-area"
 
 export const query = graphql`
-  query PortfolioItem($portfolioItemId: String!) {
-    nodePortfolioItem(id: { eq: $portfolioItemId }) {
+  query Page($pageId: String!) {
+    nodePage(id: { eq: $pageId }) {
       title
-      relationships {
-        field_client {
-          ...clientInfo
-        }
-        field_service_area {
-          ...serviceAreaLink
-        }
-        field_team_members {
-          ...teamMemberInfo
-        }
-      }
-      path {
-        alias
-      }
-      field_body {
+      body {
         processed
       }
-      field_date(formatString: "MMMM YYYY")
+      field_page_image {
+        alt
+      }
+      relationships {
+        field_page_image {
+          localFile {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
     }
   }
 `
@@ -60,7 +59,6 @@ const PortfolioItemPage = ({ data }) => {
       <BackToPortfolioLink />
       <Client {...client} />
       <PortfolioItem {...portfolioItem} />
-      <h2>Team members who worked on this project</h2>
       <TeamMembers teamMembers={teamMembers} />
       <ServiceAreaLink {...serviceArea} />
     </div>

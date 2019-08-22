@@ -39,10 +39,8 @@ const ArticlePage = ({ data }) => {
   }
 
   return (
-    <div style={{ maxWidth: "48em", margin: "0 auto" }}>
-      <Helmet title={article.title}>
-        <html lang="en" />
-      </Helmet>
+    <div>
+      <Helmet title={article.title} htmlAttributes={{ lang: "en" }} />
       <ReadMoreArticlesLink />
       <Article {...article} />
     </div>

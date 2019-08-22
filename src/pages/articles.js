@@ -46,9 +46,7 @@ const ArticlesPage = ({ data }) => {
 
   return (
     <>
-      <Helmet title="Articles">
-        <html lang="en" />
-      </Helmet>
+      <Helmet title="Articles" htmlAttributes={{ lang: "en" }} />
       <Link to="/">Home</Link>
       <h2>Articles</h2>
       <ArticlesList articles={articles} />
