@@ -117,7 +117,9 @@ const PortfolioItemPage = ({ data }) => {
 
   return (
     <div style={{ maxWidth: "48em", margin: "0 auto" }}>
-      <Helmet title={portfolioItem.title} />
+      <Helmet title={portfolioItem.title}>
+        <html lang="en" />
+      </Helmet>
       <BackToPortfolioLink />
       <Client {...client} />
       <PortfolioItem {...portfolioItem} />

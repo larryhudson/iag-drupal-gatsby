@@ -40,7 +40,9 @@ const ArticlePage = ({ data }) => {
 
   return (
     <div style={{ maxWidth: "48em", margin: "0 auto" }}>
-      <Helmet title={article.title} />
+      <Helmet title={article.title}>
+        <html lang="en" />
+      </Helmet>
       <ReadMoreArticlesLink />
       <Article {...article} />
     </div>

@@ -30,7 +30,9 @@ const PortfolioItemsPage = ({ data }) => {
 
   return (
     <>
-      <Helmet title="Portfolio" />
+      <Helmet title="Portfolio">
+        <html lang="en" />
+      </Helmet>
       <Link to="/">Home</Link>
       <h2>Portfolio</h2>
       <PortfolioItemsList portfolioItems={portfolioItems} />

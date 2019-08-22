@@ -4,7 +4,9 @@ import Helmet from "react-helmet"
 
 export default () => (
   <div>
-    <Helmet title="Information Access Group" />
+    <Helmet title="Information Access Group">
+      <html lang="en" />
+    </Helmet>
     Hello world!
     <ul>
       <li>
