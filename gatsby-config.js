@@ -4,7 +4,7 @@ module.exports = {
     {
       resolve: "gatsby-source-drupal",
       options: {
-        baseUrl: "http://dev-larryhudson-gatsby.pantheonsite.io/",
+        baseUrl: "http://dev-iag-drupal-gatsby.pantheonsite.io/",
       },
     },
     `gatsby-plugin-sharp`,
