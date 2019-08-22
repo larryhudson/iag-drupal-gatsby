@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Image from "gatsby-image"
+import Helmet from "react-helmet"
 
 export const query = graphql`
   query AllArticles {
@@ -45,6 +46,7 @@ const ArticlesPage = ({ data }) => {
 
   return (
     <>
+      <Helmet title="Articles" />
       <Link to="/">Home</Link>
       <h2>Articles</h2>
       <ArticlesList articles={articles} />

@@ -1,10 +1,12 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Image from "gatsby-image"
+import Helmet from "react-helmet"
 
 export const query = graphql`
   query PortfolioItem($portfolioItemId: String!) {
     nodePortfolioItem(id: { eq: $portfolioItemId }) {
+      title
       relationships {
         field_client {
           title
@@ -115,6 +117,7 @@ const PortfolioItemPage = ({ data }) => {
 
   return (
     <div style={{ maxWidth: "48em", margin: "0 auto" }}>
+      <Helmet title={portfolioItem.title} />
       <BackToPortfolioLink />
       <Client {...client} />
       <PortfolioItem {...portfolioItem} />

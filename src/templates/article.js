@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Image from "gatsby-image"
+import Helmet from "react-helmet"
 
 export const query = graphql`
   query Article($articleId: String!) {
@@ -39,6 +40,7 @@ const ArticlePage = ({ data }) => {
 
   return (
     <div style={{ maxWidth: "48em", margin: "0 auto" }}>
+      <Helmet title={article.title} />
       <ReadMoreArticlesLink />
       <Article {...article} />
     </div>
