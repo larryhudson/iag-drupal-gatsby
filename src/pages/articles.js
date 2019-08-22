@@ -38,13 +38,14 @@ const ArticlesPage = ({ data }) => {
     id: node.id,
     title: node.title,
     path: node.path.alias,
-    summary: node.summary,
+    summary: node.body.summary,
     imageData: node.relationships.field_image.localFile.childImageSharp.fixed,
     imageAlt: node.field_image.alt,
   }))
 
   return (
     <>
+      <Link to="/">Home</Link>
       <h2>Articles</h2>
       <ArticlesList articles={articles} />
     </>
@@ -59,6 +60,7 @@ const ArticlesList = ({ articles }) => {
           <Link to={article.path}>
             <Image fixed={article.imageData} />
             {article.title}
+            <p>{article.summary}</p>
           </Link>
         </li>
       ))}

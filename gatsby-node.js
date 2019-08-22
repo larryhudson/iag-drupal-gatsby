@@ -9,6 +9,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           }
         }
       }
+
+      allNodePortfolioItem {
+        nodes {
+          id
+          path {
+            alias
+          }
+        }
+      }
     }
   `)
 
@@ -22,6 +31,16 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: require.resolve("./src/templates/article.js"),
       context: {
         articleId: article.id,
+      },
+    })
+  })
+
+  result.data.allNodePortfolioItem.nodes.forEach(portfolioItem => {
+    actions.createPage({
+      path: portfolioItem.path.alias,
+      component: require.resolve("./src/templates/portfolio-item.js"),
+      context: {
+        portfolioItemId: portfolioItem.id,
       },
     })
   })

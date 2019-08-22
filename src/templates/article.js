@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Image from "gatsby-image"
 
 export const query = graphql`
@@ -37,12 +37,21 @@ const ArticlePage = ({ data }) => {
     imageAlt: data.nodeArticle.field_image.alt,
   }
 
-  return <Article {...article} />
+  return (
+    <div style={{ maxWidth: "48em", margin: "0 auto" }}>
+      <ReadMoreArticlesLink />
+      <Article {...article} />
+    </div>
+  )
 }
+
+const ReadMoreArticlesLink = () => (
+  <Link to="/articles">Read more articles</Link>
+)
 
 const Article = ({ title, body, imageData, imageAlt }) => {
   return (
-    <div style={{ maxWidth: "48em", margin: "0 auto" }}>
+    <div>
       <h1>{title}</h1>
       <Image fluid={imageData} alt={imageAlt} />
       <div dangerouslySetInnerHTML={{ __html: body }} />
